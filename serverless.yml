@@ -1,0 +1,17 @@
+service: app
+
+provider:
+  name: aws
+  region: us-west-2
+  runtime: provided
+
+plugins:
+  - ./vendor/bref/bref
+  - serverless-aws-alias
+
+functions:
+  draw-chart:
+    handler: index.php
+    description: ''
+    layers:
+      - ${bref:layer.php-73}

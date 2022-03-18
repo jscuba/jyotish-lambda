@@ -1,0 +1,53 @@
+{
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "kunjara/jyotish",
+                "version": "1.0",
+                "description": "PHP library for calculations in Vedic astrology",
+                "keywords": [
+                    "jyotish", "vedic astrology", "ganita", "jataka", "muhurta", "panchanga"
+                ],
+                "minimum-stability": "dev",
+                "type": "library",
+                "license": "GPL-2.0+",
+                "authors": [
+                    {
+                        "name": "Kunjara Lila das",
+                        "email": "vladya108@gmail.com",
+                        "homepage": "http://web-art.su"
+                    }
+                ],
+                "require": {
+                    "php": ">=5.6",
+                    "kunjara/swetest": "1.0"
+                },
+                "require-dev": {
+                    "phpunit/phpunit": "5.7.9",
+                    "mockery/mockery": "0.9.*"
+                },
+                "autoload": {
+                    "psr-4": {
+                        "Jyotish\\": "src"
+                    }
+                },
+                "extra": {
+                    "branch-alias": {
+                        "dev-master": "1.0.x-dev"
+                    }
+                },
+                "source": {
+                    "url": "https://github.com/jscuba/jyotish.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        }
+    ],
+    "require": {
+        "php": ">=5.6",
+        "kunjara/jyotish": "1.0",
+        "bref/bref": "^0.5.7"
+    }
+}
