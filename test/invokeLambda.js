@@ -49,8 +49,12 @@ async function getTransitData(charttype, latitude, longitude, altitude, utcdate,
 }
 
 async function testIt() {
-  let result = await getTransitData('D1', '33.0312528', '-117.2793571', '0.0', moment.utc(), 'America/Los_Angeles');
-  console.log(result);
+  try {
+    let result = await getTransitData('D1', '33.0312528', '-117.2793571', '0.0', moment.utc(), 'America/Los_Angeles');
+    console.log(result);
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 testIt();
