@@ -41,7 +41,7 @@ async function getTransitData(charttype, latitude, longitude, altitude, utcdate,
       result = JSON.parse(result);
       result = JSON.parse(result);
 
-      console.log(result);
+      return result;
     }
   } catch (err) {
     console.log(err);
