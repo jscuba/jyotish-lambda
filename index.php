@@ -13,6 +13,7 @@ use Jyotish\Yoga\Yoga;
 use Jyotish\Bala\AshtakaVarga;
 use Jyotish\Bala\GrahaBala;
 use Jyotish\Bala\RashiBala;
+use Jyotish\Graha\Graha;
 
 lambda(function ($event) {
 	if (isset($event['path']) && $event['path'] == '/ping') {
@@ -84,10 +85,13 @@ lambda(function ($event) {
 	$nakshatra = null;
 	foreach ($vargaData['graha'] as $grahaKey => $value) {
 		$nakshatra = $angaDefiner->getNakshatra(false, false, $grahaKey);
-		$vargaData['graha'][$grahaKey]['nakshatra'] = $nakshatra['key'];
+		$vargaData['graha'][$grahaKey]['nakshatra'] = $nakshatra;
+		$Graha = Graha::getInstance($grahaKey)->setEnvironment($data);
+		$vargaData['graha'][$grahaKey]['astangata'] = $Graha->isAstangata(); // combustion
+		$vargaData['graha'][$grahaKey]['rashiAvastha'] = $Graha->getRashiAvastha(); // dignity
 	}
 	$nakshatra = $angaDefiner->getNakshatra(false, false, Lagna::KEY_LG);
-	$vargaData['lagna'][Lagna::KEY_LG]['nakshatra'] = $nakshatra['key'];
+	$vargaData['lagna'][Lagna::KEY_LG]['nakshatra'] = $nakshatra;
 
 	// dasha
 	$data = new Data($now, $locality, $ganita);
