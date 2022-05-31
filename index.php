@@ -89,6 +89,18 @@ lambda(function ($event) {
 		$Graha = Graha::getInstance($grahaKey)->setEnvironment($data);
 		$vargaData['graha'][$grahaKey]['astangata'] = $Graha->isAstangata(); // combustion
 		$vargaData['graha'][$grahaKey]['rashiAvastha'] = $Graha->getRashiAvastha(); // dignity
+		$vargaData['graha'][$grahaKey]['gocharastha'] = $Graha->isGocharastha(); // gocharastha
+		$vargaData['graha'][$grahaKey]['bhavaCharacter'] = $Graha->getBhavaCharacter(); // Bhava Character
+		$vargaData['graha'][$grahaKey]['tempRelation'] = $Graha->getTempRelation(); // Get tatkalika (temporary) relations
+		$vargaData['graha'][$grahaKey]['relation'] = $Graha->getRelation(); // Get summary relations
+		$vargaData['graha'][$grahaKey]['vargottama'] = $Graha->isVargottama(); // Vargottama
+		$vargaData['graha'][$grahaKey]['yogakaraka'] = $Graha->isYogakaraka(); // yogakaraka
+		$vargaData['graha'][$grahaKey]['mrityu'] = $Graha->isMrityu(); // graha is in mrityu bhaga
+		$vargaData['graha'][$grahaKey]['pushkaraNavamsha'] = $Graha->isPushkara(Graha::PUSHKARA_NAVAMSHA); // graha is in pushkara navamsha
+		$vargaData['graha'][$grahaKey]['pushkaraBhaga'] = $Graha->isPushkara(Graha::PUSHKARA_BHAGA); // graha is in pushkara bhaga
+		$vargaData['graha'][$grahaKey]['yuddha'] = $Graha->isYuddha(); // graha is in planetary war
+		$vargaData['graha'][$grahaKey]['avastha'] = $Graha->getAvastha(); // Get avastha of graha
+		$vargaData['graha'][$grahaKey]['dispositor'] = $Graha->getDispositor(); // Get ruler of the bhava, where graha is positioned
 	}
 	$nakshatra = $angaDefiner->getNakshatra(false, false, Lagna::KEY_LG);
 	$vargaData['lagna'][Lagna::KEY_LG]['nakshatra'] = $nakshatra;
